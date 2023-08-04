@@ -6,10 +6,6 @@
                 "dir": "net/daed"
             },
             {
-
-                "dir": "net/v2ray-geodata"
-            },
-            {
                 "dir": "net/dae"
             }
         ]
