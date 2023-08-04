@@ -1,0 +1,21 @@
+[
+    {
+        "URL": "https://github.com/immortalwrt/packages.git",
+        "subdir": [
+            {
+                "dir": "net/daed"
+            },
+            {
+                "dir": "net/dae"
+            }
+        ]
+    },
+    {
+        "URL": "https://github.com/openwrt/packages.git",
+        "subdir": [
+            {
+                "dir": "lang/golang"
+            }
+        ]
+    }
+]
