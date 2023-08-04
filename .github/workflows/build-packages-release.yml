@@ -21,6 +21,34 @@ jobs:
       matrix:
         arch:
           - x86_64-v23.05.0-rc1
+          - aarch64_generic-v23.05.0-rc1
+          - aarch64_cortex-a53-v23.05.0-rc1
+          - aarch64_cortex-a72-v23.05.0-rc1
+          - arm_arm1176jzf-s_vfp-v23.05.0-rc1
+          - arm_arm926ej-s-v23.05.0-rc1
+          - arm_cortex-a15_neon-vfpv4-v23.05.0-rc1
+          - arm_cortex-a5_vfpv4-v23.05.0-rc1
+          - arm_cortex-a7-v23.05.0-rc1
+          - arm_cortex-a7_neon-vfpv4-v23.05.0-rc1
+          - arm_cortex-a7_vfpv4-v23.05.0-rc1
+          - arm_cortex-a8_vfpv3-v23.05.0-rc1
+          - arm_cortex-a9-v23.05.0-rc1
+          - arm_cortex-a9_neon-v23.05.0-rc1
+          - arm_cortex-a9_vfpv3-d16-v23.05.0-rc1
+          - arm_fa526-v23.05.0-rc1
+          - arm_mpcore-v23.05.0-rc1
+          - arm_xscale-v23.05.0-rc1
+          - i386_pentium-mmx-v23.05.0-rc1
+          - i386_pentium4-v23.05.0-rc1
+          - mips64_octeonplus-v23.05.0-rc1
+          - mips_24kc-v23.05.0-rc1
+          - mips_4kec-v23.05.0-rc1
+          - mips_mips32-v23.05.0-rc1
+          - mipsel_24kc-v23.05.0-rc1
+          - mipsel_74kc-v23.05.0-rc1
+          - mipsel_mips32-v23.05.0-rc1
+          - powerpc_464fp-v23.05.0-rc1
+          - powerpc_8548-v23.05.0-rc1
 
     steps:
       - uses: actions/checkout@v3
