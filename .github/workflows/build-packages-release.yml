@@ -41,16 +41,6 @@ jobs:
           echo "PACKAGES=${PACKAGES}" >> $GITHUB_ENV
           find . -name "Makefile" -type f -exec cat {} \;
 
-      - name: Upload feed
-        uses: Pendect/action-rsyncer@8e05ffa5c93e5d9c9b167796b26044d2c616b2b9
-        with:
-          flags: '-ahvHP'
-          options: '--delete'
-          src: 'patch.sh'
-          dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-dae-dist/${{ matrix.arch }}/'
-        env:
-          DEPLOY_KEY: ${{ secrets.SF_KEY }}
-
       - name: Build
         uses: ekkog/gh-action-sdk@master
         env:
@@ -62,7 +52,6 @@ jobs:
           V: 99
           PACKAGES: ${{ env.PACKAGES }}
 
-
       - name: List files
         run: |
           ls -R bin/
@@ -73,29 +62,6 @@ jobs:
           flags: '-ahvHP'
           options: '--delete'
           src: 'bin/packages/${{ matrix.arch }}/action/'
-          dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-dae-dist/${{ matrix.arch }}/'
+          dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-openwrt-dist/dae/${{ matrix.arch }}/'
         env:
           DEPLOY_KEY: ${{ secrets.SF_KEY }}
-          
-      - name: Upload
-        env:
-          ARCH: ${{ matrix.arch }}
-        run: |
-
-          ARCH_NAME=$(echo "$ARCH" | awk -F'-v2' '{print $1}')
-          VERSION=$(echo "$ARCH" | awk -F'-v2' '{print $2}')
-          # big version 23.05
-          BIG_VERSION=$(echo $VERSION | awk -F'.' '{print $1"."$2}')
-
-          BRANCH="$ARCH_NAME-2$BIG_VERSION"
-          if [[ $ARCH =~ "SNAPSHOT" ]]; then
-              BRANCH="$ARCH"
-          fi
-          cd bin/packages/*/action
-          sudo chown runner:runner -R .
-          git init
-          git config user.name "bot"
-          git config user.email "bot@github.com"
-          git add .
-          git commit -m "$(TZ='Asia/Shanghai' date +@%Y%m%d)"
-          git push --force --quiet "https://x-access-token:${{ secrets.PUSH_TOKEN }}@github.com/$GITHUB_REPOSITORY" HEAD:$BRANCH
