@@ -4,7 +4,7 @@ https://github.com/EkkoG/dae-dist
 
 Add this line to your /etc/opkg/customfeeds.conf
 
-Supported ARCH please see https://sourceforge.net/projects/ekko-openwrt-dist/files/clash/
+Supported ARCH please see https://sourceforge.net/projects/ekko-openwrt-dist/files/dae/
 ```
 echo "src/gz ekkog_dae https://master.dl.sourceforge.net/project/ekko-openwrt-dist/dae/$ARCH/" | tee -a "/etc/opkg/customfeeds.conf"
 ``````
