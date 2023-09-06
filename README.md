@@ -5,7 +5,7 @@ https://github.com/EkkoG/dae-dist
 Add this line to your /etc/opkg/customfeeds.conf
 
 ```
-src/gz ekkog_dae https://ghproxy.com/https://raw.githubusercontent.com/EkkoG/dae-dist/x86_64-23.05
+src/gz ekkog_dae https://master.dl.sourceforge.net/project/ekko-openwrt-dist/dae/x86_64-v23.05.0-rc1/
 ``````
 
 Then run
