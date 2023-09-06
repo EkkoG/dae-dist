@@ -61,7 +61,7 @@ jobs:
         with:
           flags: '-ahvHP'
           options: '--delete'
-          src: 'bin/packages/${{ matrix.arch }}/action/'
+          src: 'bin/packages/*/action/'
           dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-openwrt-dist/dae/${{ matrix.arch }}/'
         env:
           DEPLOY_KEY: ${{ secrets.SF_KEY }}
