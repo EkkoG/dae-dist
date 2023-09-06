@@ -56,7 +56,16 @@ jobs:
       - name: List files
         run: |
           ls -R bin/
-
+      - name: Upload feed
+        uses: Pendect/action-rsyncer@8e05ffa5c93e5d9c9b167796b26044d2c616b2b9
+        with:
+          flags: '-ahvHP'
+          options: '--delete'
+          src: 'bin/packages/${{ matrix.arch }}/action/'
+          dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-dae-dist/${{ matrix.arch }}/'
+        env:
+          DEPLOY_KEY: ${{ secrets.SF_KEY }}
+          
       - name: Upload
         env:
           ARCH: ${{ matrix.arch }}
