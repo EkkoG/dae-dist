@@ -4,11 +4,18 @@
         "subdir": [
             {
                 "dir": "net/daed"
-            },
-            {
-                "dir": "net/dae"
             }
         ]
+    },
+    {
+        "URL": "https://github.com/EkkoG/openwrt-dae",
+        "subdir": [
+            {
+                "dir": ".",
+                "rename_to": "dae"
+            }
+        ]
+
     },
     {
         "URL": "https://github.com/openwrt/packages.git",
