@@ -21,4 +21,4 @@ jobs:
           REPO: daeuniverse/dae
           BRANCH: main
           INCLUDE_PRE_RELEASE: true
-          SOURCE_URL: https://github.com/daeuniverse/dae/releases/download/{{version}}/dae-full-src.zip
+          SOURCE_URL: https://github.com/daeuniverse/dae/releases/download/v{{version}}/dae-full-src.zip
