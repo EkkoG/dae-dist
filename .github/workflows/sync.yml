@@ -6,6 +6,7 @@ on:
       - '.github/workflows/sync.yml'
       - 'config.json'
 
+  workflow_dispatch: null
   schedule:
   - cron: 12 */6 * * *
 
