@@ -20,9 +20,9 @@ jobs:
     strategy:
       matrix:
         arch:
-          - x86_64-v23.05.0-rc2
-          - aarch64_generic-v23.05.0-rc2
-          - aarch64_cortex-a53-v23.05.0-rc1
+          - x86_64-v23.05.1
+          - aarch64_generic-v23.05.1
+          - aarch64_cortex-a53-v23.05.1
 
     steps:
       - uses: actions/checkout@v3
@@ -45,6 +45,7 @@ jobs:
       - name: Build
         uses: ekkog/gh-action-sdk@master
         env:
+          CONTAINER: docker.io/immortalwrt/sdk
           ARCH: ${{ matrix.arch }}
           KEY_BUILD: ${{ secrets.KEY_BUILD }}
           INDEX: 1
