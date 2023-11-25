@@ -20,9 +20,9 @@ jobs:
     strategy:
       matrix:
         arch:
-          - x86_64-v23.05.1
-          - aarch64_generic-v23.05.0
-          - aarch64_cortex-a53-v23.05.0
+          - x86_64-v23.05.0-rc3
+          - aarch64_generic-v23.05.0-rc3
+          - aarch64_cortex-a53-v23.05.0-rc3
 
     steps:
       - uses: actions/checkout@v3
