@@ -44,6 +44,8 @@ jobs:
           PACKAGES=$(cat 2.txt)
           PACKAGES=$(echo "$PACKAGES" | tr '\n' ' ')
           echo "PACKAGES=${PACKAGES}" >> $GITHUB_ENV
+          final_arch=$(echo ${{ matrix.arch }} | sed 's/openwrt-/v/g')
+          echo "final_arch=${final_arch}" >> $GITHUB_ENV
           find . -name "Makefile" -type f -exec cat {} \;
 
       - name: Build
@@ -68,6 +70,6 @@ jobs:
           flags: '-ahvHP'
           options: '--delete'
           src: 'bin/packages/*/action/'
-          dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-openwrt-dist/dae/${{ matrix.arch }}/'
+          dest: '${{ secrets.SF_USER }}@frs.sourceforge.net:/home/frs/project/ekko-openwrt-dist/dae/${{ env.final_arch }}/'
         env:
           DEPLOY_KEY: ${{ secrets.SF_KEY }}
