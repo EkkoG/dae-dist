@@ -20,9 +20,9 @@ jobs:
     strategy:
       matrix:
         arch:
-          - x86_64-openwrt-v23.05.1
-          - aarch64_generic-openwrt-v23.05.1
-          - aarch64_cortex-a53-openwrt-v23.05.1
+          - x86_64-openwrt-23.05.1
+          - aarch64_generic-openwrt-23.05.1
+          - aarch64_cortex-a53-openwrt-23.05.1
 
           # - x86_64-v23.05.1
           # - aarch64_generic-v23.05.1
