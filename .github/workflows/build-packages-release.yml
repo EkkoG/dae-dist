@@ -20,7 +20,10 @@ jobs:
     strategy:
       matrix:
         arch:
-          - x86-64-master
+          - x86_64-master
+          - aarch64_generic-master
+          - aarch64_cortex-a53-master
+          # - x86_64-openwrt-23.05.1
           # - aarch64_generic-openwrt-23.05.1
           # - aarch64_cortex-a53-openwrt-23.05.1
 
@@ -44,7 +47,8 @@ jobs:
           PACKAGES=$(cat 2.txt)
           PACKAGES=$(echo "$PACKAGES" | tr '\n' ' ')
           echo "PACKAGES=${PACKAGES}" >> $GITHUB_ENV
-          final_arch=$(echo ${{ matrix.arch }} | sed 's/openwrt-/v/g')
+          # split by - and get the first element, drop the version number
+          final_arch=$(echo ${{ matrix.arch }} | cut -d '-' -f 1)
           echo "final_arch=${final_arch}" >> $GITHUB_ENV
           find . -name "Makefile" -type f -exec cat {} \;
 
