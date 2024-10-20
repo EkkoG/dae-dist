@@ -4,7 +4,7 @@ https://github.com/EkkoG/dae-dist
 ## Add with scripts
 
 ```
-sh -c "$(curl https://raw.fgit.cf/EkkoG/openwrt-dist/master/add-feed.sh)" -- dae
+sh -c "$(curl https://fastly.jsdelivr.net/gh/EkkoG/openwrt-dist@master/add-feed.sh)" -- dae
 ```
 
 ## Manual add
