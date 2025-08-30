@@ -58,6 +58,7 @@ jobs:
           CONTAINER: docker.io/immortalwrt/sdk
           ARCH: ${{ matrix.arch }}
           KEY_BUILD: ${{ secrets.KEY_BUILD }}
+          PRIVATE_KEY: ${{ secrets.APK_SEC_KEY }}
           INDEX: 1
           IGNORE_ERRORS: 1
           NO_SHFMT_CHECK: 1
